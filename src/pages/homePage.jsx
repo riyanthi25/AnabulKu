@@ -1,8 +1,9 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { Grid, Loader, Container, Image } from "@mantine/core";
-import CatCard from "../components/catCard";
 import { fetchImages3 } from "../api";
+import AboutUs from "../layout/home/aboutUs";
+import CatFact from "../layout/home/catFact";
 
 // Loader function to fetch data
 export const loader = async () => {
@@ -22,8 +23,7 @@ const HomePage = () => {
       <div
         style={{
           backgroundColor: "#3AA6B9",
-          color: "#fff",
-          // paddingBottom: "40px",
+          color: "#2b0806",
         }}
       >
         <Container size="xl" style={{ paddingTop: "20px" }}>
@@ -68,69 +68,9 @@ const HomePage = () => {
           </Grid>
         </Container>
       </div>
-      <div
-        style={{
-          backgroundColor: "#FF9EAA",
-          color: "#fff",
-          paddingBottom: "80npmpx",
-          marginTop: "-24px",
-        }}
-      >
-        <Container size="xl" style={{ padding: "20px" }}>
-          <Grid>
-            <Grid.Col span={6}><h1>akfhueafygeygcg</h1></Grid.Col>
-            <Grid.Col span={6} style={{paddingRight:"110px" }}>
-              <h3
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  fontSize: "40px",
-                }}
-              >
-                KUCING - FELIS CATUS
-              </h3>
-              <p
-                style={{
-                  fontSize: "18px",
-                  margin: "0px",
-                  justifyContent: "flex-end",
-                  textAlign: "end",
-                  display: "flex",
-                  marginTop: "-35px",
-                }}
-              >
-                Kucing adalah hewan mamalia karnivora dari keluarga Felidae.
-                Nama ilmiahnya adalah Felis catus atau Felis silvestris catus.
-                Kucing telah berbaur dengan kehidupan manusia selama lebih dari
-                9.500 tahun dan sekarang merupakan salah satu hewan peliharaan
-                paling populer di dunia.
-              </p>
-            </Grid.Col>
-          </Grid>
-        </Container>
-      </div>
-      <div
-        style={{
-          backgroundColor: "#3AA6B9",
-          color: "#fff",
-          paddingBottom: "30px",
-          marginTop: "-24px",
-        }}
-      >
-        <Container size="xl" style={{ padding: "40px" }}>
-          <Grid>
-            {cats.map((cat) => (
-              <Grid.Col
-                span={4}
-                key={cat.id}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <CatCard cat={cat} />
-              </Grid.Col>
-            ))}
-          </Grid>
-        </Container>
-      </div>
+      <AboutUs/>
+      <CatFact/>
+      
     </>
   );
 };
