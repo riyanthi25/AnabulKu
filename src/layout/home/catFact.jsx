@@ -7,7 +7,7 @@ function CatFact() {
       style={{
         backgroundColor: "#3AA6B9",
         color: "#2b0806",
-        paddingBottom: "40px",
+        paddingBottom: "40px", paddingTop:"30px",
         marginTop: "-24px",
       }}
     >
@@ -17,9 +17,9 @@ function CatFact() {
             span={6}
             style={{ display: "flex", justifyContent: "center" }}
           >
-            <h1
+            <h1 className="font-extrabold"
               style={{
-                marginTop: "100px",
+                marginTop: "70px",
                 fontStyle: "italic",
                 fontSize: "50px",
               }}
@@ -28,7 +28,7 @@ function CatFact() {
             </h1>
           </Grid.Col>
           <Grid.Col span={6} style={{ paddingRight: "125px" }}>
-            <h3
+            <h3 className="font-extrabold"
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
@@ -40,8 +40,6 @@ function CatFact() {
             <p
               style={{
                 fontSize: "18px",
-                margin: "0px",
-                marginTop: "-35px",
                 justifyContent: "flex-end",
                 textAlign: "end",
                 display: "flex",

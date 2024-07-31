@@ -1,23 +1,9 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
-import { Grid, Loader, Container, Image } from "@mantine/core";
-import { fetchImages3 } from "../api";
+import { Grid, Container, Image } from "@mantine/core";
 import AboutUs from "../layout/home/aboutUs";
 import CatFact from "../layout/home/catFact";
 
-// Loader function to fetch data
-export const loader = async () => {
-  const cats = await fetchImages3();
-  return cats;
-};
-
 const HomePage = () => {
-  const cats = useLoaderData(); // Use the data fetched by the loader
-
-  if (!cats) {
-    return <Loader />;
-  }
-
   return (
     <>
       <div
@@ -29,7 +15,7 @@ const HomePage = () => {
         <Container size="xl" style={{ paddingTop: "20px" }}>
           <Grid>
             <Grid.Col span={6}>
-              <h3
+              <h3 className="font-extrabold"
                 style={{
                   display: "flex",
                   justifyContent: "flex-end",
@@ -44,7 +30,6 @@ const HomePage = () => {
                   fontSize: "25px",
                   justifyContent: "center",
                   display: "flex",
-                  marginTop: "-35px",
                 }}
               >
                 here's all about your 'anabul'. . .

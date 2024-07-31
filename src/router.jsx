@@ -1,4 +1,4 @@
-import Home, { loader as homeLoader } from "./pages/homePage";
+import Home from "./pages/homePage";
 
 import AdoptionPage from "./pages/adoptionPage";
 
@@ -17,7 +17,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: homeLoader,
       },
       {
         path: "/adopt",
