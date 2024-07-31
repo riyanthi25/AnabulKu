@@ -12,25 +12,14 @@ const HomePage = () => {
           color: "#2b0806",
         }}
       >
-        <Container size="xl" style={{ paddingTop: "20px" }}>
+        <Container size="xl" className="md:pt-5 ">
           <Grid>
             <Grid.Col span={6}>
-              <h3 className="font-extrabold"
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  paddingTop: "40px",
-                  fontSize: "40px",
-                }}
+              <h3 className="font-extrabold md:flex md:justify-end md:pt-[70px] md:text-[40px] text-3xl"
               >
                 WELCOME TO, AnabulKu
               </h3>
-              <p
-                style={{
-                  fontSize: "25px",
-                  justifyContent: "center",
-                  display: "flex",
-                }}
+              <p className="text-2xl flex justify-center pt-2"
               >
                 here's all about your 'anabul'. . .
               </p>

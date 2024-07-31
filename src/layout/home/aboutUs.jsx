@@ -1,5 +1,5 @@
 import React from "react";
-import { Center, Container, Grid, Image, Text, Box } from "@mantine/core";
+import { Center, Container, Grid, Image, Box } from "@mantine/core";
 
 function AboutUs() {
   return (
@@ -19,7 +19,7 @@ function AboutUs() {
             paddingTop: "30px",paddingBottom:"23px"
           }}
         >
-          LELAH? REFRESH BENTAR YUK!
+          LELAH? REFRESHING BENTAR YUK!
         </h1>
       </Center>
       <Container size="xl" style={{ marginTop: "0px", marginBottom:"25px" }}>

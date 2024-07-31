@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Grid, Text, Image } from "@mantine/core";
+import {
+  Container,
+  Text,
+  Image,
+  AppShell,
+  Box,
+  Burger,
+  Group,
+} from "@mantine/core";
 
 const links = [
   { to: "/", label: "Home" },
@@ -10,47 +18,46 @@ const links = [
   // add new link here!
 ];
 
-export default function Header() {
+export default function Header({ opened, toggle }) {
   return (
-    <header
+    <AppShell.Header
       style={{
         backgroundColor: "#3AA6B9",
         color: "#FFD0D0",
         padding: "23px",
         position: "sticky",
+        border: "none",
         top: 0,
         zIndex: 1000, // Ensure the navbar is above other content
       }}
     >
       <Container size="xl">
-        <Grid justify="space-between">
-          <div
+        <Group justify="space-between">
+          <Box
             style={{
               display: "flex",
-              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Image
               src="/src/assets/hero-icon.svg"
               w={35}
               h={35}
-              style={{ marginTop: "6px", marginRight: "9px" }}
+              style={{ marginRight: "9px" }}
             />
 
-            <Grid.Col span={1}>
-              <Text
-                fw={700}
-                size="xxl"
-                weight={700}
-                style={{
-                  fontSize: "1.50rem",
-                }}
-              >
-                AnabulKu
-              </Text>
-            </Grid.Col>
-          </div>
-          <Grid.Col span={3}>
+            <Text
+              fw={700}
+              size="xxl"
+              weight={700}
+              style={{
+                fontSize: "1.50rem",
+              }}
+            >
+              AnabulKu
+            </Text>
+          </Box>
+          <Group visibleFrom="lg">
             <nav
               style={{
                 display: "flex",
@@ -61,6 +68,7 @@ export default function Header() {
               {links.map((link) => (
                 <Link
                   key={link.to}
+                  className="hover:opacity-20 transition duration-200"
                   to={link.to}
                   style={{
                     color: "#FFD0D0",
@@ -72,10 +80,10 @@ export default function Header() {
                 </Link>
               ))}
             </nav>
-          </Grid.Col>
-          <Grid.Col
-            span={3}
+          </Group>
+          <Group
             style={{ display: "flex", justifyContent: "flex-end" }}
+            visibleFrom="md"
           >
             <Link
               target="blank"
@@ -84,9 +92,53 @@ export default function Header() {
             >
               <Image src="/src/assets/phone-call.png" w={25} h={25} />
             </Link>
-          </Grid.Col>
-        </Grid>
+          </Group>
+
+          {/* Navbar khusus mobile - start */}
+          <AppShell.Navbar hiddenFrom="md" className="bg-opacity-0 ">
+            <Box
+              style={{
+                width: "100%",
+                padding: "10px 20px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "5px",
+                backgroundColor: "#3AA6B9",
+              }}
+              component="div"
+            >
+              {links.map((link) => (
+                <Link
+                  key={link.to}
+                  className="hover:opacity-80 transition duration-200 bg-red-300 px-4 py-2 rounded-lg font-bold"
+                  to={link.to}
+                  style={{
+                    color: "#2b0806",
+                    textDecoration: "none",
+                    fontSize: "1.25rem",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+
+              <Group>
+                <Link
+                  target="blank"
+                  className="mt-6 border-2 border-gray-200 rounded-lg flex justify-center items-center gap-4 px-4 py-2 hover:bg-red-300 hover:border-red-300 duration-200 transition"
+                  style={{ marginRight: "20px", color: "#2b0806" }}
+                  to="https://wa.me/085737005452"
+                >
+                  <Image src="/src/assets/phone-call.png" w={16} />
+                </Link>
+              </Group>
+            </Box>
+          </AppShell.Navbar>
+          {/* Navbar khusus mobile - end */}
+
+          <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
+        </Group>
       </Container>
-    </header>
+    </AppShell.Header>
   );
 }
