@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import ScrollToTop from "../components/scrollToTop";
 import { useDisclosure } from "@mantine/hooks";
+import { Box } from "@mantine/core";
 
 export default function LayoutMain() {
   const [opened, { toggle }] = useDisclosure(false);
