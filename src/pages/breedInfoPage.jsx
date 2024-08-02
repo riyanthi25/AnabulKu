@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { fetch_cats_api } from "../api";
 import { Link, useLoaderData } from "react-router-dom";
 import {
@@ -12,10 +12,10 @@ import {
   Button,
   Center,
   Title,
-  Pagination,
   Box,
 } from "@mantine/core";
 import { usePagination } from "@mantine/hooks";
+
 export const loader = async () => {
   try {
     const cat_breeds = await fetch_cats_api(`/breeds`);
@@ -71,20 +71,17 @@ export default function BreedInfoPage() {
   return (
     <>
       <Box
-        style={{
-          backgroundColor: "#FF9EAA",
-          color: "#2b0806",
-          paddingBottom: "40px",
-        }}
+        className="bg-[#FF9EAA] text-[#2b0806] md:pb-10"
+        
       >
         <Center>
-          <Title order={1} style={{ margin: "0px", paddingTop: "30px" }}>
+          <Title className="md:m-0 md:pt-8 md:px-0 px-6 pt-6 md:pb-0 pb-4 text-center" order={1}>
             Temukan Ras Anabulmu!
           </Title>
         </Center>
-        <Container size="xl" style={{ paddingTop: "30px" }}>
+        <Container className="md:pt-8" size="xl">
           <Grid gutter="xl">
-            {visibleCats.length != 0 ? (
+            {visibleCats.length !== 0 ? (
               visibleCats.map((cat) => (
                 <Grid.Col span={{ sm: 6, md: 4, lg: 3 }} key={cat.id}>
                   <Card shadow="sm" padding="lg" radius="lg">
@@ -130,16 +127,33 @@ export default function BreedInfoPage() {
         </Container>
         <Center>
           <Box mt={"xl"}>
-            <Pagination
-              total={totalCats}
-              withEdges
-              size={"lg"}
-              onChange={(range) => pagination.setPage(range)}
-              onFirstPage={() => pagination.setPage(1)}
-            />
+            <nav className="flex flex-wrap justify-center items-center space-x-1 md:px-0 px-8">
+              <button
+                onClick={() => pagination.setPage(1)}
+                className="px-3 py-1 bg-gray-200 text-gray-800 rounded-md mb-2 md:mb-0"
+              >
+                First
+              </button>
+              {Array.from({ length: totalCats }, (_, i) => i + 1).map(
+                (page) => (
+                  <button
+                    key={page}
+                    onClick={() => pagination.setPage(page)}
+                    className={`px-3 py-1 mb-2 md:mb-0 ${
+                      page === pagination.active
+                        ? "bg-pink-600 text-white"
+                        : "bg-gray-200 text-[#2b0806]"
+                    } rounded-md`}
+                  >
+                    {page}
+                  </button>
+                )
+              )}
+            </nav>
           </Box>
         </Center>
       </Box>
     </>
   );
 }
+  

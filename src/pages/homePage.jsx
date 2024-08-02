@@ -1,49 +1,33 @@
 import React from "react";
-import { Grid, Container, Image } from "@mantine/core";
 import AboutUs from "../layout/home/aboutUs";
 import CatFact from "../layout/home/catFact";
 
 const HomePage = () => {
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#3AA6B9",
-          color: "#2b0806",
-        }}
-      >
-        <Container size="xl" className="md:pt-5 ">
-          <Grid>
-            <Grid.Col span={6}>
-              <h3 className="font-extrabold md:flex md:justify-end md:pt-[70px] md:text-[40px] text-3xl"
-              >
+      <div className="bg-[#3AA6B9] text-[#2b0806]">
+        <div className="container mx-auto md:px-32 md:pt-0 md:pb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="flex flex-col justify-center  md:px-0 px-6">
+              <h3 className="font-extrabold text-[25px] md:text-[40px] md:pt-0 pt-6">
                 WELCOME TO, AnabulKu
               </h3>
-              <p className="text-2xl flex justify-center pt-2"
-              >
+              <p className="md:text-2xl md:pt-2 md:pb-4 mt-[-2px]">
                 here's all about your 'anabul'. . .
               </p>
-            </Grid.Col>
-            <Grid.Col
-              span={6}
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                paddingLeft: "150px",
-              }}
-            >
-              <Image
+            </div>
+            <div className="flex justify-center md:justify-start md:pl-[120px]">
+              <img
                 src="/src/assets/cat-love.png"
-                w={300}
-                h={300}
-                style={{ justify: "flex-start" }}
+                alt="Cat Love"
+                className="md:w-[280px] md:h-[280px] w-36"
               />
-            </Grid.Col>
-          </Grid>
-        </Container>
+            </div>
+          </div>
+        </div>
       </div>
-      <AboutUs/>
-      <CatFact/>
+      <AboutUs />
+      <CatFact />
     </>
   );
 };

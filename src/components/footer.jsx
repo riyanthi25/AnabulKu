@@ -86,7 +86,7 @@ export default function Footer() {
             {socials.map((social) => (
               <a
                 key={social.label}
-                href={social.to}
+                href={social.to} target="_blank"
                 className="ms-5 "
               >
                 <img src={social.icon} alt={social.label} className="md:w-6 w-5 md:h-6" />
